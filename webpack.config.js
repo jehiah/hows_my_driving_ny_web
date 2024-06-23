@@ -20,7 +20,9 @@ module.exports = {
       // all files with a `.ts`, `.cts`, `.mts` or `.tsx` extension will be handled by `ts-loader`
       { test: /\.([cm]?ts|tsx)$/, loader: "ts-loader" },
       {
-        test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
       }
     ]
   }

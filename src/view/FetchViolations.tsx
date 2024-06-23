@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row'
 import { useCookies } from 'react-cookie'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 import 'index.css'
@@ -20,7 +21,7 @@ import VehicleResults from 'view/VehicleResults'
 
 import Footer from './Footer'
 
-library.add(faAngleDown, faAngleUp)
+library.add(faAngleDown  as IconDefinition, faAngleUp  as IconDefinition)
 smoothscroll.polyfill()
 
 const FetchViolations = () => {

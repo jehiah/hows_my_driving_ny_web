@@ -10,7 +10,7 @@ type OwnProps = {
     plateType: PlateType | undefined
     state: string
   },
-  handleChange: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => void
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   label: string
   selectFn: JSX.Element[]
   valueKey: 'plateId' | 'plateType' | 'state'

@@ -4,7 +4,6 @@ import fp from 'fingerprintjs2'
 import mixpanel from 'mixpanel-browser'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import Jumbotron from 'react-bootstrap/Jumbotron'
 import Row from 'react-bootstrap/Row'
 import { useCookies } from 'react-cookie'
 
@@ -375,34 +374,36 @@ const Search = ({
   }, [])
 
   return (
-    <Jumbotron>
-      <JumbotronHeader />
-      <Row>
-        <Form className='form' onSubmit={handleSubmit}>
-          <Form.Row>
-            <Col md>
-              <Form.Group>
-                <input
-                  autoComplete="off"
-                  className='form-control'
-                  id='plate-input'
-                  name='plateId'
-                  onChange={handleInputChange}
-                  placeholder='Enter a plate...'
-                  type="text"
-                  value={currentLookup.plateId ?? ''}
-                />
-              </Form.Group>
-            </Col>
-            <RegionSelect currentLookup={currentLookup} handleInputChange={handleInputChange}/>
-          </Form.Row>
-          <Form.Row>
-            <PlateTypeSelect currentLookup={currentLookup} handleInputChange={handleInputChange}/>
-            <SearchButton lookupInFlight={lookupInFlight} plateIdPresent={!!currentLookup.plateId}/>
-          </Form.Row>
-        </Form>
-      </Row>
-    </Jumbotron>
+    <div className='p-3 mb-3 jumbotron'>
+      <div className='container-fluid py-5'> 
+        <JumbotronHeader />
+        <Row>
+          <Form className='form' onSubmit={handleSubmit}>
+            <Row>
+              <Col md>
+                <Form.Group>
+                  <input
+                    autoComplete="off"
+                    className='form-control'
+                    id='plate-input'
+                    name='plateId'
+                    onChange={handleInputChange}
+                    placeholder='Enter a plate...'
+                    type="text"
+                    value={currentLookup.plateId ?? ''}
+                  />
+                </Form.Group>
+              </Col>
+              <RegionSelect currentLookup={currentLookup} handleInputChange={handleInputChange}/>
+            </Row>
+            <Row>
+              <PlateTypeSelect currentLookup={currentLookup} handleInputChange={handleInputChange}/>
+              <SearchButton lookupInFlight={lookupInFlight} plateIdPresent={!!currentLookup.plateId}/>
+            </Row>
+          </Form>
+        </Row>
+      </div>
+    </div>
   )
 }
 
