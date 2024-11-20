@@ -69,11 +69,10 @@ const RemoveLookupButton = ({ removeLookupFn }: { removeLookupFn: () => void}) =
         setButtonPressedClass('')
       }}
     >
-      <FontAwesomeIcon
-        className={`circle ${buttonPressedClass}`}
-        icon='times-circle'
-        transform="grow-6"
-      />
+      <FontAwesomeIcon className={`circle-xmark ${buttonPressedClass}`}
+       icon="circle-xmark" 
+       transform="grow-6"
+       />
     </button>
   )
 }

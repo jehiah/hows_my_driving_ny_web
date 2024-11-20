@@ -52,7 +52,7 @@ const JumbotronHeader = React.memo(() => (
   <>
     <h1 className='display-4'>{L10N.sitewide.title}</h1>
     {L10N.query.jumbotronHeaderText}
-    <hr className="my-1" />
+    <hr className="mb-3" />
   </>
 ))
 JumbotronHeader.displayName = 'JumbotronHeader'
@@ -61,7 +61,7 @@ const PlateTypeSelect = React.memo((
   { currentLookup, handleInputChange }: InputHandlerType
 ) => (
   <Col md>
-    <Form.Group>
+    <Form.Group className="mb-3">
       <SearchSelect
         currentLookup={currentLookup}
         handleChange={handleInputChange}
@@ -87,7 +87,7 @@ const RegionSelect = React.memo((
   { currentLookup, handleInputChange }: InputHandlerType
 ) => (
   <Col md>
-    <Form.Group>
+    <Form.Group  className="mb-3">
       <SearchSelect
         currentLookup={currentLookup}
         handleChange={handleInputChange}
@@ -113,7 +113,7 @@ const SearchButton = React.memo((
   { plateIdPresent, lookupInFlight }: { plateIdPresent: boolean, lookupInFlight: boolean }
 ) => (
   <Col md>
-    <Form.Group>
+    <Form.Group  className="mb-3">
       <input
         className='form-control btn btn-primary'
         disabled={!plateIdPresent || lookupInFlight}
@@ -375,13 +375,13 @@ const Search = ({
 
   return (
     <div className='p-3 mb-3 jumbotron'>
-      <div className='container-fluid py-5'> 
+      <div className='container-fluid py-4'> 
         <JumbotronHeader />
         <Row>
-          <Form className='form' onSubmit={handleSubmit}>
+          <Form className='form col-md-8 col-lg-6 col-xl-4 m-0' onSubmit={handleSubmit}>
             <Row>
-              <Col md>
-                <Form.Group>
+              <Col >
+                <Form.Group className='mb-3'>
                   <input
                     autoComplete="off"
                     className='form-control'

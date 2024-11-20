@@ -19,7 +19,7 @@ const TwitterShare = ({ vehicle }: { vehicle: Vehicle }) => {
       <TwitterIcon
         crossOrigin=""
         round
-        size={32}
+        size={30}
       />
     </TwitterShareButton>
   )

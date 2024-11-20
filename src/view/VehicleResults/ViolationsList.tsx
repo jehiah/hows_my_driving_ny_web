@@ -23,10 +23,10 @@ const ViolationsList = ({ vehicle }: { vehicle: Vehicle}) => {
   const shouldShowFullFineDataButton = violationsListIsVisible && vehicleHasViolations
   const shouldShowFullViolationTextButton = violationsListIsVisible && vehicleHasViolations
 
-  const ShowFullFineDataButton = () => {
+  const ShowFullFineDataButton = ({className} : {className: string}) => {
     return (
       <button
-          className="btn btn-outline-primary btn-block"
+          className={`btn btn-outline-primary btn-block ${className}`}
           onClick={(e) => {
             e.stopPropagation()
             setShowFullFineData(!showFullFineData)
@@ -43,10 +43,10 @@ const ViolationsList = ({ vehicle }: { vehicle: Vehicle}) => {
     )
   }
 
-  const ShowFullViolationTextButton = () => {
+  const ShowFullViolationTextButton = ({className} : {className: string}) => {
     return (
       <button
-        className="btn btn-outline-primary btn-block"
+        className={`btn btn-outline-primary btn-block ${className}`}
         onClick={(e) => {
           e.stopPropagation()
           setShowFullText(!showFullText)
@@ -63,7 +63,7 @@ const ViolationsList = ({ vehicle }: { vehicle: Vehicle}) => {
     )
   }
 
-  const ShowViolationsButton = ({ vehicle }: { vehicle: Vehicle}) => {
+  const ShowViolationsButton = ({ vehicle, className }: { vehicle: Vehicle, className: string}) => {
     const buttonText = vehicleHasViolations
       ? (violationsListIsVisible
         ? L10N.lookups.toggleViolationsView.hide
@@ -75,7 +75,7 @@ const ViolationsList = ({ vehicle }: { vehicle: Vehicle}) => {
       <button
       aria-controls={`violations-table-${vehicle.uniqueIdentifier}`}
       aria-expanded='false'
-        className={`btn btn-block ${
+        className={`btn btn-block ${className} ${
           vehicleHasViolations
             ? 'btn-outline-primary'
             : 'btn-outline-secondary'
@@ -98,17 +98,17 @@ const ViolationsList = ({ vehicle }: { vehicle: Vehicle}) => {
       <div className='violations-table-wrapper' style={{width: '100%'}}>
         <div className='violations-table-header'>
           <div className='row'>
-            <div className={`col-12 ${(violationsListIsVisible && vehicleHasViolations) ? 'col-md-4' : ''}`}>
-              <ShowViolationsButton vehicle={vehicle}/>
+            <div className={`col-sm-12 ${(violationsListIsVisible && vehicleHasViolations) ? 'col-md-4' : ''}`}>
+              <ShowViolationsButton vehicle={vehicle} className='col-sm-12' />
             </div>
             {shouldShowFullFineDataButton && (
-              <div className='col-12 col-md-4'>
-                <ShowFullFineDataButton />
+              <div className='col-sm-12 col-md-4'>
+                <ShowFullFineDataButton className='col-sm-12'/>
               </div>
             )}
             {shouldShowFullViolationTextButton && (
-              <div className='col-12 col-md-4'>
-                <ShowFullViolationTextButton />
+              <div className='col-sm-12 col-md-4'>
+                <ShowFullViolationTextButton className='col-sm-12' />
               </div>
             )}
           </div>
