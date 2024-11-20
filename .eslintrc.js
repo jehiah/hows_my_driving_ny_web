@@ -20,7 +20,7 @@ module.exports = {
         "plugin:react/recommended",
         "prettier"
     ],
-    "parser": "@typescript-eslint/parser",
+    // "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": "tsconfig.json",
         "sourceType": "module"
